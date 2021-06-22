@@ -55,7 +55,7 @@
         /* 头部止 */
 
         .list li {
-            width: 550px;
+            width: 300px;
             display: inline-block;
             margin: 10px;
         }
@@ -175,7 +175,7 @@
                 for (let i = 0; i < res.data.data.list.length; i++) {
                     console.log(res.data);
                     let li = $('<li></li>');
-                    li.append(`<img width='500px' height='300px' src=${res.data.data.list[i].img}>`);
+                    li.append(`<img width='300px' height='300px' src=${res.data.data.list[i].img}>`);
                     li.append(`<h3>${res.data.data.list[i].title}</h3>`)
                     li.append(`<span>${res.data.data.list[i].time}</span>`)
                     li.attr('id', res.data.data.list[i].id);

@@ -144,7 +144,7 @@
         // alert(widow.location.search.split('=')[1]);
         var i = window.location.search.split('=')[1];
         // console.log(i);
-        axios.get(`https://www.fastmock.site/mock/ab5e8ffd57db8f1f4173861f72e5404f/wch/ch`).then(function(res){
+        axios.get(`https://www.fastmock.site/mock/ab5e8ffd57db8f1f4173861f72e5404f/wch/data`).then(function(res){
             console.log(res.data.data.list);
             let obj ={}
             for (let index = 0; index < res.data.data.list.length; index++) {

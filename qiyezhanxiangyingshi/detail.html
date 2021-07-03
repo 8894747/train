@@ -27,8 +27,8 @@
                 <div id="lists" class="list list-mobile">
                     <a href="index.html">首页</a>&nbsp;&nbsp;&nbsp;
                     <a href="news.html">新闻</a>&nbsp;&nbsp;&nbsp;
-                    <a href="map.html" style="pointer-events: none;">关于我们</a>&nbsp;&nbsp;&nbsp;
-                    <a href="gerenzhanshiye.html" style="pointer-events: none;">个人展示页</a>&nbsp;&nbsp;&nbsp;
+                    <a href="map.html" >关于我们</a>&nbsp;&nbsp;&nbsp;
+                    <a href="gerenzhanshiye.html" >个人展示页</a>&nbsp;&nbsp;&nbsp;
                 </div>
             </div>
         </div>
@@ -76,18 +76,48 @@
             main.append(`<p style="font-size: 28px; text-align:left">${res.data.data.list[0].mainContent}</p>`);
         })
     </script>
-    <script>
-        $(function() {
-            $('#lists').removeClass('list-mobile')
-            $('#menus').click(function() {
-                if ($('#lists').hasClass('list-mobile')) {
-                    $('#lists').removeClass('list-mobile')
-                } else {
-                    $('#lists').addClass('list-mobile')
+<script>
+    $(function() {
+        $('#lists').removeClass('list-mobile')
+        $('#menus').click(function() {
+            if ($('#lists').hasClass('list-mobile')) {
+                $('#lists').removeClass('list-mobile')
+            } else {
+                $('#lists').addClass('list-mobile')
+            }
+        })
+        $(window).scroll(function() {
+            console.log("1", $(document).scrollTop())
+            if ($(document).scrollTop() >= 2000) {
+                $('#img').attr('src', 'erweima.jpg')
+            }
+        })
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
+
+        $('#footerImg').click(function() {
+            console.log("fff")
+            myModal.show()
+        })
+        $("#submit").click(function() {
+            let email = $('#exampleInputEmail1').val()
+            let message = $('#exampleInputPassword1').val()
+            console.log("email", email, message)
+            axios({
+                url: 'https://anxhpmw8.lc-cn-n1-shared.com/1.1/classes/data',
+                method: 'post',
+                headers: {
+                    'X-LC-Id': 'ANXHpmW8OqNdyMJFzXeYiBnU-gzGzoHsz',
+                    'X-LC-Key': 'uXeb0P7atQceCfDm8Csb7Jtq'
+                },
+                data: {
+                    email: email,
+                    message: message
                 }
             })
+            myModal.hide()
         })
-    </script>
+    })
+</script>
 </body>
 
 </html>
